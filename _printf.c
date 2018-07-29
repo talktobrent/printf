@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				string = va_arg(ap, char *);
-				write(1, string, sizeof(va_arg(ap, char*)));
+				write(1, string, (counter(string) + 1));
 				sum += counter(string);
 				i++;
 				break;
