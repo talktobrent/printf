@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
+#include "holberton.h"
+
+/**
+ * counter - counts length of string
+ * @string: string given
+ * Return: count of string, minus null character
+ */
 
 int counter(char *string)
 {
@@ -12,6 +19,14 @@ int counter(char *string)
 	return (i);
 }
 
+
+/**
+ * _printf - prints any chars or strings given
+ * @format: input string
+ * Description: prints input string, unless special characters are found,
+ * in which case, it prints string or char arguments
+ * Return: total number of characters printed
+ */
 
 int _printf(const char *format, ...)
 {
@@ -56,18 +71,4 @@ int _printf(const char *format, ...)
 	va_end(ap);
 
 	return (sum);
-}
-
-int main()
-{
-	char name[10] = "Brent";
-	char c = 'W';
-
-	_printf("Hello %s Janski\n", name);
-	_printf("Hi %c orld\n", c);
-	_printf("\\n\n");
-	_printf("Ours: %%c\n");
-	printf("Built-in: %%c\n");
-
-	return 0;
 }
