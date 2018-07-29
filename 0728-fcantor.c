@@ -1,6 +1,8 @@
-#include <stdio.h>
+#include <stdio.h>:
 #include <string.h>
 #include <stdarg.h>
+#include <unistd.h>
+
 
 int counter(char *string)
 {
@@ -17,7 +19,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 
-	int i, c, sum = 0;
+	int i, c, sum, digit = 0;
 	char *string;
 
 	va_start(ap, format);
@@ -45,6 +47,19 @@ int _printf(const char *format, ...)
 				sum += counter(string);
 				i++;
 				break;
+			case '%':
+				write(1, &format[i], sizeof(int));
+				i++;
+				sum++;
+				break;
+			case 'i':
+				digit = va_arg(ap, int);
+
+				write(1, &digit, sizeof(int));
+				i++;
+				break;
+			default:
+				break;
 			}
 		}
 	}
@@ -59,9 +74,7 @@ int main()
 	char name[10] = "Brent";
 	char c = 'W';
 
-	_printf("Hello %s Janski\n", name);
-	_printf("Hi %c orld\n", c);
-	_printf("\\n");
-
+	_printf("%i\n", 3);
+	printf("%i\n", 3);
 	return 0;
 }
