@@ -3,6 +3,12 @@
 #include <stdarg.h>
 #include "holberton.h"
 
+/**
+ * counter - counts length of string
+ * @string: string given
+ * Return: count of string, minus null character
+ */
+
 int counter(char *string)
 {
 	int i = 0;
@@ -13,6 +19,14 @@ int counter(char *string)
 	return (i);
 }
 
+
+/**
+ * _printf - prints any chars or strings given
+ * @format: input string
+ * Description: prints input string, unless special characters are found,
+ * in which case, it prints string or char arguments
+ * Return: total number of characters printed
+ */
 
 int _printf(const char *format, ...)
 {
