@@ -64,6 +64,8 @@ int _printf(const char *format, ...)
 				write(1, "%", sizeof(char));
 				sum++;
 				i++;
+			default:
+				break;
 			}
 		}
 	}
