@@ -57,17 +57,3 @@ int _printf(const char *format, ...)
 
 	return (sum);
 }
-
-int main()
-{
-	char name[10] = "Brent";
-	char c = 'W';
-
-	_printf("Hello %s Janski\n", name);
-	_printf("Hi %c orld\n", c);
-	_printf("\\n\n");
-	_printf("Ours: %%c\n");
-	printf("Built-in: %%c\n");
-
-	return 0;
-}
