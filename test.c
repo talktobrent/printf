@@ -45,6 +45,10 @@ int _printf(const char *format, ...)
 				sum += counter(string);
 				i++;
 				break;
+			case '%':
+				write(1, "%", sizeof(char));
+				sum++;
+				i++;
 			}
 		}
 	}
@@ -61,7 +65,9 @@ int main()
 
 	_printf("Hello %s Janski\n", name);
 	_printf("Hi %c orld\n", c);
-	_printf("\\n");
+	_printf("\\n\n");
+	_printf("Ours: %%c\n");
+	printf("Built-in: %%c\n");
 
 	return 0;
 }
