@@ -6,7 +6,7 @@ int main(void)
 char *x;
 int y;
 
-	y = 123456;
+	y = 0;
 
 	x = intostring(y);
 	printf("%s\n", x);
