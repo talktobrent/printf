@@ -48,7 +48,6 @@ int _printf(const char *format, ...)
 				write(1, "%", sizeof(char));
 				sum++;
 				i++;
-<<<<<<< HEAD
 				break;
 			case 'i':
 			case 'd':
@@ -58,14 +57,6 @@ int _printf(const char *format, ...)
 				sum += counter(intString);
 				i++;
 				freeFlag++;
-=======
-			case 'i':
-			case 'd':
-				string = intostring(va_arg(ap, int));
-				write(1, string, (counter(string) + 1));
-				sum += counter(string);
-				i++;
->>>>>>> 7874869be573afa67da768c676e31feab3c124ba
 				break;
 			default:
 				break;
@@ -75,12 +66,8 @@ int _printf(const char *format, ...)
 
 	va_end(ap);
 
-<<<<<<< HEAD
 	if (freeFlag > 0)
 		free(intString);
-=======
-	free(string);
->>>>>>> 7874869be573afa67da768c676e31feab3c124ba
 
 	return (sum);
 }
