@@ -1,5 +1,10 @@
 #include <stdlib.h>
-#include <stdio.h>
+
+/**
+  * intostring - converts int to string
+  * @n: integer given
+  * Return: new string
+  */
 
 char * intostring(int n)
 {
@@ -42,16 +47,5 @@ else
 string[count] = 0;
 
 return (string);
-}
-
-int main (int argc, char *argv[])
-{
-	if (argc > 1)
-	{
-	printf("%s\n", intostring(atoi(argv[1])));
-	return (0);
-	}
-
-	return (1);
 }
 
