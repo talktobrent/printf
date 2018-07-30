@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 #include <unistd.h>
 #include <stdlib.h>
+=======
+>>>>>>> 4e0edcba6fafdf149f47e7966da20dd2e4a5423f
 #include <stdarg.h>
+#include <unistd.h>
 #include "holberton.h"
+<<<<<<< HEAD
 
 
+=======
+#include <stdio.h>
+>>>>>>> 4e0edcba6fafdf149f47e7966da20dd2e4a5423f
 /**
  * counter - counts length of string
  * @string: string given
@@ -35,6 +43,9 @@ int _printf(const char *format, ...)
 
 	int i, c, sum = 0;
 	char *string;
+	int *x;
+
+	x = 0;
 
 	va_start(ap, format);
 
@@ -67,14 +78,26 @@ int _printf(const char *format, ...)
 				write(1, "%", sizeof(char));
 				sum++;
 				i++;
+<<<<<<< HEAD
 			default:
 				write(1, "Unknown conversion type!\n", sizeof("Unknown conversion type!\n"));
 				exit(1);
+=======
+				break;
+			case 'i':
+			case 'd':
+				x = va_arg(ap, int);
+				write(1, x, sizeof(int));
+				sum++;
+				i++;
+				break;
+			default:
+				break;
+>>>>>>> 4e0edcba6fafdf149f47e7966da20dd2e4a5423f
 			}
 		}
 	}
 
 	va_end(ap);
-
 	return (sum);
 }
