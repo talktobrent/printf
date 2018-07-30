@@ -6,7 +6,7 @@
  * Return: new string
  */
 
-char * intostring(int n)
+char *intostring(int n)
 {
 
 	long x;
