@@ -1,10 +1,13 @@
+#include "holberton.h"
+#include <stdlib.h>
+
 /**
   * chCon - prints a char
   * @c: char given
   * Return: 1
   */
 
-int chCon(int c)
+int _ch(int c)
 {
 	write(1, &c, sizeof(int));
 	return (1);
@@ -16,13 +19,13 @@ int chCon(int c)
   * Return: length of string
   */
 
-int strCon(char *string)
+int _str(char *string)
 {
 int count;
 count = 0;
 
-	if (string == NULL)
-		return (-1);
+	if (string == '\0')
+		return (0);
 
 	count = counter(string);
 	write(1, string, count + 1);
@@ -36,16 +39,17 @@ count = 0;
   * Return: char string
   */
 
-int *intCon(int n)
+int _num(int n)
 {
 char *string;
 int count;
 count = 0;
-string = NULL;
+string = 0;
 
 	string = inToString(n);
 	count = counter(string);
 	write(1, string, count + 1);
+	free(string);
 
 	return (count);
 }

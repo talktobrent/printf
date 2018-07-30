@@ -16,8 +16,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 
 	int i, c, x, sum = 0;
-	int freeFlag = 0;
-	char *string, *intString;
+	char *string;
 
 	string = 0;
 
@@ -37,40 +36,29 @@ int _printf(const char *format, ...)
 		{
 			switch (format[i + 1])
 			{
+			case '%':
+				write(1, "%", sizeof(char));
+				i++;
+				sum++;
+				break;
 			case 'c':
 				c = va_arg(ap, int);
-				write(1, &c, sizeof(int));
-				sum++;
+				sum += _ch(c);
 				i++;
 				break;
 			case 's':
 				string = va_arg(ap, char *);
-				if (string == NULL)
-				{
-					i++;
-					break;
-				}
-				write(1, string, (counter(string) + 1));
-				sum += counter(string);
-				i++;
-				break;
-			case '%':
-				write(1, "%", sizeof(char));
-				sum++;
+				sum += _str(string);
 				i++;
 				break;
 			case 'i':
 			case 'd':
 				x = va_arg(ap, int);
-				intString = intostring(x);
-				write(1, intString, (counter(intString) + 1));
-				sum += counter(intString);
+				sum += _num(x);
 				i++;
-				freeFlag++;
 				break;
 			default:
 				write(1, "%", sizeof(char));
-				i++;
 				sum++;
 				break;
 			}
@@ -78,9 +66,6 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(ap);
-
-	if (freeFlag > 0)
-		free(intString);
 
 	return (sum);
 }
