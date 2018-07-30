@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
+#include <unistd.h>
 
 /**
   * chCon - prints a char
