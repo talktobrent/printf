@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "holberton.h"
+#include <stdlib.h>
 
 /**
  * _printf - prints any chars or strings given
@@ -46,6 +47,13 @@ int _printf(const char *format, ...)
 				write(1, "%", sizeof(char));
 				sum++;
 				i++;
+			case 'i':
+			case 'd':
+				string = intostring(va_arg(ap, int));
+				write(1, string, (counter(string) + 1));
+				sum += counter(string);
+				i++;
+				break;
 			default:
 				break;
 			}
@@ -53,6 +61,8 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(ap);
+
+	free(string);
 
 	return (sum);
 }
