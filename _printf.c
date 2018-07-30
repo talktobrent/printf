@@ -1,23 +1,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "holberton.h"
-#include <stdio.h>
-/**
- * counter - counts length of string
- * @string: string given
- * Return: count of string, minus null character
- */
-
-int counter(char *string)
-{
-	int i = 0;
-
-	for (i = 0; string[i] != '\0'; i++)
-		;
-
-	return (i);
-}
-
+#include <stdlib.h>
 
 /**
  * _printf - prints any chars or strings given
@@ -31,11 +15,9 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 
-	int i, c, sum = 0;
-	char *string;
-	int *x;
-
-	x = 0;
+	int i, c, x, sum = 0;
+	int freeFlag = 0;
+	char *string, *intString;
 
 	va_start(ap, format);
 
@@ -70,9 +52,11 @@ int _printf(const char *format, ...)
 			case 'i':
 			case 'd':
 				x = va_arg(ap, int);
-				write(1, x, sizeof(int));
-				sum++;
+				intString = intostring(x);
+				write(1, intString, (counter(intString) + 1));
+				sum += counter(intString);
 				i++;
+				freeFlag++;
 				break;
 			default:
 				break;
@@ -81,5 +65,9 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(ap);
+
+	if (freeFlag > 0)
+	free(intString);
+
 	return (sum);
 }
