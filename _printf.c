@@ -2,7 +2,6 @@
 #include <unistd.h>
 #include "holberton.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
  * _printf - prints any chars or strings given
