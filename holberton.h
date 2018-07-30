@@ -6,5 +6,6 @@ int _putchar(char c);
 int counter(char *string);
 int checker(const char *format);
 int _printf(const char *format, ...);
+char * intostring(int n);
 
 #endif
