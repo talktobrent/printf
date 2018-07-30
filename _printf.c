@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include "holberton.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * _printf - prints any chars or strings given
@@ -19,7 +20,12 @@ int _printf(const char *format, ...)
 	int freeFlag = 0;
 	char *string, *intString;
 
+	string = 0;
+
 	va_start(ap, format);
+
+	if (format == NULL)
+		return (-1);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -40,6 +46,11 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				string = va_arg(ap, char *);
+				if (string == NULL)
+				{
+					i++;
+					break;
+				}
 				write(1, string, (counter(string) + 1));
 				sum += counter(string);
 				i++;
@@ -59,6 +70,9 @@ int _printf(const char *format, ...)
 				freeFlag++;
 				break;
 			default:
+				write(1, "%", sizeof(char));
+				i++;
+				sum++;
 				break;
 			}
 		}
