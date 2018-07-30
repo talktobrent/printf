@@ -1,7 +1,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "holberton.h"
-
+#include <stdio.h>
 /**
  * counter - counts length of string
  * @string: string given
@@ -33,6 +33,9 @@ int _printf(const char *format, ...)
 
 	int i, c, sum = 0;
 	char *string;
+	int *x;
+
+	x = 0;
 
 	va_start(ap, format);
 
@@ -63,11 +66,20 @@ int _printf(const char *format, ...)
 				write(1, "%", sizeof(char));
 				sum++;
 				i++;
+				break;
+			case 'i':
+			case 'd':
+				x = va_arg(ap, int);
+				write(1, x, sizeof(int));
+				sum++;
+				i++;
+				break;
+			default:
+				break;
 			}
 		}
 	}
 
 	va_end(ap);
-
 	return (sum);
 }
