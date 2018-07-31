@@ -1,6 +1,6 @@
 #include "holberton.h"
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 /**
   * _ch - prints a char
@@ -28,7 +28,6 @@ int _str(char *string)
 
 	count = counter(string);
 	write(1, string, count + 1);
-
 	return (count);
 }
 
@@ -51,6 +50,5 @@ int _num(int n)
 	count = counter(string);
 	write(1, string, count + 1);
 	free(string);
-
 	return (count);
 }
