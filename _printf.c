@@ -71,8 +71,11 @@ int _printf(const char *format, ...)
 					i++;
 					sum++;
 				}
-				va_end(ap);
-				return (-1);
+				else
+				{
+					va_end(ap);
+					return (-1);
+				}
 			default:
 				write(1, "%", sizeof(char));
 				sum++;

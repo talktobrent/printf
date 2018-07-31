@@ -27,7 +27,7 @@ int _str(char *string)
 	count = 0;
 
 	count = counter(string);
-	write(1, string, count + 1);
+	write(1, string, count);
 	return (count);
 }
 
