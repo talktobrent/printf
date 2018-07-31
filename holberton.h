@@ -9,6 +9,18 @@ int _printf(const char *format, ...);
 char *inToString(int n);
 int _ch(int c);
 int _str(char *string);
-int _num(int n);
+int _int(int n);
+
+/**
+ * struct cp - Struct cp
+ *
+ * @cp: The conversion specifier
+ * @f: The function associated
+ */
+typedef struct cp
+{
+	char *cp;
+	int (*f)();
+} conv_t;
 
 #endif
