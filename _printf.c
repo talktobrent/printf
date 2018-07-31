@@ -63,7 +63,6 @@ int _printf(const char *format, ...)
 				break;
 			case '\0':
 				return (-1);
-				break;
 			default:
 				write(1, "%", sizeof(char));
 				sum++;
