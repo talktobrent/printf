@@ -65,6 +65,12 @@ int _printf(const char *format, ...)
 				i++;
 				break;
 			case '\0':
+				if ((i - 1) > 0)
+				{
+					write(1, "%", sizeof(char));
+					i++;
+					sum++;
+				}
 				va_end(ap);
 				return (-1);
 			default:
