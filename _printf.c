@@ -20,13 +20,12 @@ int _printf(const char *format, ...)
 
 	string = 0;
 
-	va_start(ap, format);
-
 	if (format == NULL)
-	{
-		va_end(ap);
-		return (-1);
-	}
+        {
+                return (-1);
+        }
+
+	va_start(ap, format);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
