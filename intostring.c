@@ -15,7 +15,7 @@ char *inToString(int n)
 
 	string = malloc(sizeof(char) * 12);
 	if (string == NULL)
-		return (0);
+		exit(1);
 
 	x = n;
 	count = 0;
