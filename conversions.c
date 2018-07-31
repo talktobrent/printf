@@ -23,6 +23,7 @@ int _ch(int c)
 int _str(char *string)
 {
 	int count;
+
 	count = 0;
 
 	count = counter(string);
@@ -42,6 +43,7 @@ int _num(int n)
 
 	char *string;
 	int count;
+
 	count = 0;
 	string = 0;
 
