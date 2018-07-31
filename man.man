@@ -1,5 +1,5 @@
-.TH FOO 1 "MARCH 1995" Linux "User Manuals"
-.SH NAME
+.TH _PRINTF 1 "JULY 2018" Holberton Manual
+.SH _printf
 foo \- frobnicate the bar library
 .SH SYNOPSIS
 .B foo [-bar] [-c
@@ -8,7 +8,8 @@ foo \- frobnicate the bar library
 .I file
 .B ...
 .SH DESCRIPTION
-.B foo
+.SS Format of the format string
+.SS Format specifier
 frobnicates the bar library by tweaking internal
 symbol tables. By default it parses all baz segments
 and rearranges them in reverse order by time for the
