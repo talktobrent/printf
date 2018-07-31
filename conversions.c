@@ -51,7 +51,7 @@ int _num(int n)
 		return (0);
 
 	count = counter(string);
-	write(1, string, count + 1);
+	write(1, string, count);
 	free(string);
 	return (count);
 }
