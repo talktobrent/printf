@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 
-	int i, c, x, errorFlag, sum = 0;
+	int i, c, x, sum = 0;
 	char *string;
 
 	string = 0;
@@ -23,8 +23,10 @@ int _printf(const char *format, ...)
 	va_start(ap, format);
 
 	if (format == NULL)
+	{
 		va_end(ap);
 		return (-1);
+	}
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
