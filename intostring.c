@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
 /**
- * intostring - converts int to string
+ * inToString - converts int to string
  * @n: integer given
  * Return: new string
  */

@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 /**
-  * chCon - prints a char
+  * _ch - prints a char
   * @c: char given
   * Return: 1
   */
@@ -15,7 +15,7 @@ int _ch(int c)
 }
 
 /**
-  * strCon - prints a string
+  * _str - prints a string
   * @string: string given
   * Return: length of string
   */
@@ -35,7 +35,7 @@ count = 0;
 }
 
 /**
-  * intCon - converts int to char string, and prints it
+  * _num - converts int to char string, and prints it
   * @n: int given
   * Return: char string
   */
