@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 
-	int i, c, x, sum = 0;
+	int i, c, x, errorFlag, sum = 0;
 	char *string;
 
 	string = 0;
@@ -60,6 +60,10 @@ int _printf(const char *format, ...)
 				x = va_arg(ap, int);
 				sum += _num(x);
 				i++;
+				break;
+			case ' ':
+			case '\0':
+				return (-1);
 				break;
 			default:
 				write(1, "%", sizeof(char));
