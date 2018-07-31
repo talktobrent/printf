@@ -48,6 +48,10 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				string = va_arg(ap, char *);
+				if (string == NULL)
+				{
+					string = "(null)";
+				}
 				sum += _str(string);
 				i++;
 				break;

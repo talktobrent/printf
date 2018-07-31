@@ -22,11 +22,8 @@ int _ch(int c)
 
 int _str(char *string)
 {
-int count;
-count = 0;
-
-	if (string == '\0')
-		return (0);
+	int count;
+	count = 0;
 
 	count = counter(string);
 	write(1, string, count + 1);
@@ -42,10 +39,11 @@ count = 0;
 
 int _num(int n)
 {
-char *string;
-int count;
-count = 0;
-string = 0;
+
+	char *string;
+	int count;
+	count = 0;
+	string = 0;
 
 	string = inToString(n);
 	count = counter(string);
@@ -54,5 +52,3 @@ string = 0;
 
 	return (count);
 }
-
-
