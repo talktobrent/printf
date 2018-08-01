@@ -39,9 +39,8 @@ int _str(char *string)
 
 int _num(int n)
 {
-
-	char *string;
 	int count;
+	char *string;
 
 	count = 0;
 	string = 0;
