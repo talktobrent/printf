@@ -13,7 +13,7 @@ char *inToString(int n)
 	int count, adjust;
 	char *string;
 
-	string = malloc(sizeof(char) * 12);
+	string = malloc(sizeof(char) * 11);
 	if (string == NULL)
 		exit(-1);
 
