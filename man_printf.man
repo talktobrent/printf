@@ -5,7 +5,7 @@ _printf
 .nf
 .B #include <holberton.h>
 .PP
-.BI "int printf(const char *" format ", ...);"
+.BI "int _printf(const char *" format ", ...);"
 .RE
 .ad
 .PD
@@ -62,7 +62,7 @@ The
 .I string
 argument is printed.
 .SH RETURN VALUE
-Upon successful return, these functions return the number of characters
+Upon successful return, this function returns the number of characters
 printed (excluding the null byte used to end output to strings).
 .SH NOTES
 We are adding more conversion specifiers!
