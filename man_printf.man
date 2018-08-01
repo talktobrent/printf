@@ -31,11 +31,8 @@ ordinary characters (not
 .BR % ),
 which are copied unchanged to the output stream,
 .I printf("This is an example"),
-and conversion specifications, each of which results in fetching zero or
-more subsequent arguments. After the format string ends (via closing double quotes), 
-a coma is placed to separate the format string and each subsequent argument.
-Each conversion specification is introduced by
-the character
+and conversion specifications, each of which results in fetching zero or more subsequent arguments. After the format string ends (via closing double quotes), a coma is placed to separate the format string and each subsequent argument.
+Each conversion specification is introduced by the character
 .BR % ,
 and ends with a
 .IR "conversion specifier". Here is an example:
@@ -51,7 +48,11 @@ The arguments must correspond properly (after type promotion) with the
 conversion specifier.
 By default, the arguments are used in the order
 given, and each conversion specifier asks for the next
-argument. 
+argument. If _printf is given a NULL string, the function prints:
+.I (null)
+ in place of the string. If _printf is given a NULL integer argument, 
+ .I 0 
+ is printed.
 .SS Conversion specifiers
 A character that specifies the type of conversion to be applied.
 The conversion specifiers and their meanings are:
@@ -74,11 +75,13 @@ argument is printed.
 Upon successful return, this function returns the number of characters
 printed (excluding the null byte used to end output to strings). Upon error, this funtion returns
 .I -1
-. If the format string is NULL or a % is only followed by a null byte or space character, _printf returns an error.
+. If the format string is NULL, or if a % is only followed by a null byte or space character, _printf returns an error.
 .SH NOTES
-We are adding more conversion specifiers!
+Conversion specifiers for many other arguments and types will be implemented over the course of _printf's development at Holberton. To contribute, you may send a check payable to Brent or Francesca at Holberton School.
 .SH BUGS
-We still have many bugs!
+Upon printing a conversion specifier after a previous
+.I % 
+which was followed by space(s), the function stops printing and returns an error.
 .SH EXAMPLES
 .TP
 To print an integer: 
