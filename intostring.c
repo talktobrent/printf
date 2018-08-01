@@ -9,24 +9,22 @@
 char *inToString(int n)
 {
 
-	unsigned int x;
+	long x;
 	int count, adjust;
 	char *string;
 
-	string = malloc(sizeof(char) * 11);
+	string = malloc(sizeof(char) * 12);
 	if (string == NULL)
 		exit(-1);
 
-	x = 0;
+	x = n;
 	count = 0;
 
-	if (n < 0)
+	if (x < 0)
 	{
 		string[count++] = '-';
-		x = n * -1;
+		x = x * -1;
 	}
-	else
-		x = n;
 
 	if (x > 9)
 	{
@@ -49,6 +47,5 @@ char *inToString(int n)
 		string[count++] = n + '0';
 
 	string[count] = 0;
-
 	return (string);
 }
