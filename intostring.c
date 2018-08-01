@@ -9,7 +9,7 @@
 char *inToString(int n)
 {
 
-	long x;
+	unsigned int x;
 	int count, adjust;
 	char *string;
 
@@ -17,14 +17,16 @@ char *inToString(int n)
 	if (string == NULL)
 		exit(-1);
 
-	x = n;
+	x = 0;
 	count = 0;
 
-	if (x < 0)
+	if (n < 0)
 	{
 		string[count++] = '-';
-		x = x * -1;
+		x = n * -1;
 	}
+	else
+		x = n;
 
 	if (x > 9)
 	{
