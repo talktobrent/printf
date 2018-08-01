@@ -40,9 +40,19 @@ int _str(char *string)
 int _num(int n)
 {
 	int count;
+	char *string;
 
 	count = 0;
+	string = 0;
 
-	count = inToString(n);
+	string = inToString(n);
+	if (string == NULL)
+	{
+		free(string);
+		return (0);
+	}
+	count = counter(string);
+	write(1, string, sizeof(char) * count);
+	free(string);
 	return (count);
 }

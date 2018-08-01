@@ -6,7 +6,7 @@ int _putchar(char c);
 int counter(char *string);
 int checker(const char *format);
 int _printf(const char *format, ...);
-int inToString(int n);
+char *inToString(int n);
 int _ch(int c);
 int _str(char *string);
 int _num(int n);
