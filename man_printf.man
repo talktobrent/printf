@@ -16,12 +16,12 @@ produces output according to a
 .I format
 as described below.
 The function writes output to
-.IR stdout ,
-the standard output stream;
+.IR stdout,
+the standard output stream.
 .PP
-_printf writes the output under the control of a
+_printf writes the output via a
 .I format
-string that specifies how subsequent arguments (or arguments accessed via
+string which uses special characters to instruct how subsequent arguments (or arguments accessed via
 the variable-length argument facilities of
 .BR stdarg (3))
 are converted for output.
@@ -29,20 +29,29 @@ are converted for output.
 The format string is a character string composed of zero or more directives: 
 ordinary characters (not
 .BR % ),
-which are copied unchanged to the output stream;
+which are copied unchanged to the output stream,
+.I printf("This is an example"),
 and conversion specifications, each of which results in fetching zero or
-more subsequent arguments.
+more subsequent arguments. After the format string ends (via closing double quotes), 
+a coma is placed to separate the format string and each subsequent argument.
 Each conversion specification is introduced by
 the character
 .BR % ,
 and ends with a
-.IR "conversion specifier" .
+.IR "conversion specifier". Here is an example:
+.I printf("Print an integer: %i", 9) 
+Notice how the integer value is separated by a coma. You may also use variables in place of literal values as well.
+To print a literal 
+.I %
+, simply print:
+.I %%
+.
 .PP
 The arguments must correspond properly (after type promotion) with the
 conversion specifier.
 By default, the arguments are used in the order
 given, and each conversion specifier asks for the next
-argument (it is an error if insufficiently many arguments are given).
+argument. 
 .SS Conversion specifiers
 A character that specifies the type of conversion to be applied.
 The conversion specifiers and their meanings are:
@@ -63,7 +72,9 @@ The
 argument is printed.
 .SH RETURN VALUE
 Upon successful return, this function returns the number of characters
-printed (excluding the null byte used to end output to strings).
+printed (excluding the null byte used to end output to strings). Upon error, this funtion returns
+.I -1
+. If the format string is NULL or a % is only followed by a null byte or space character, _printf returns an error.
 .SH NOTES
 We are adding more conversion specifiers!
 .SH BUGS
