@@ -64,6 +64,8 @@ int _printf(const char *format, ...)
 				sum += _num(x);
 				i++;
 				break;
+			case ' ':
+				return (-1);
 			case '\0':
 				if ((i - 1) > 0)
 				{
