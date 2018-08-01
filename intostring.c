@@ -10,12 +10,12 @@ char *inToString(int n)
 {
 
 	long x;
-	unsigned int count, adjust;
+	int count, adjust;
 	char *string;
 
 	string = malloc(sizeof(char) * 12);
 	if (string == NULL)
-		exit(1);
+		exit(-1);
 
 	x = n;
 	count = 0;
