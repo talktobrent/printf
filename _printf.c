@@ -15,9 +15,10 @@ int _printf(const char *format, ...)
 {
 	va_list ap;
 
-	int i, c, x, sum = 0;
-	char *string;
+	int i, x, sum = 0;
+	char *string, c;
 
+	c = 0;
 	string = 0;
 
 	va_start(ap, format);

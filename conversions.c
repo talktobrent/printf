@@ -10,7 +10,7 @@
 
 int _ch(int c)
 {
-	write(1, &c, sizeof(int));
+	write(1, &c, sizeof(char));
 	return (1);
 }
 
@@ -27,7 +27,7 @@ int _str(char *string)
 	count = 0;
 
 	count = counter(string);
-	write(1, string, count);
+	write(1, string, sizeof(char) * count);
 	return (count);
 }
 
