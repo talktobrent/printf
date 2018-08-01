@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "holberton.h"
+#include <stdio.h>
 /**
  * inToString - converts int to string
  * @n: integer given
@@ -15,7 +16,7 @@ char *inToString(int n)
 
 	string = malloc(sizeof(char) * 12);
 	if (string == NULL)
-		return(NULL);
+		return (NULL);
 
 	x = n;
 	count = 0;
@@ -44,7 +45,7 @@ char *inToString(int n)
 	}
 
 	else
-		string[count++] = n + '0';
+		string[count++] = x + '0';
 
 	string[count] = 0;
 	return (string);
