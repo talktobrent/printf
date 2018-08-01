@@ -1,52 +1,55 @@
-#include <stdlib.h>
 #include "holberton.h"
+#include <unistd.h>
+
 /**
- * inToString - converts int to string
- * @n: integer given
- * Return: new string
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+
+/**
+ * print_number - This function prints an integer
+ * @n: Integer to evaluate
  */
 
-char *inToString(int n)
+int inToString(int n)
 {
+	int count = 0;
 
-	long x;
-	int count, adjust;
-	char *string;
-
-	string = malloc(sizeof(char) * 12);
-	if (string == NULL)
-		exit(-1);
-
-	x = n;
-	count = 0;
-
-	if (x < 0)
+	/* if n is divisible by 10 */
+	if (n / 10)
 	{
-		string[count++] = '-';
-		x = x * -1;
+		/* call function again and evaluate */
+		inToString(n / 10);
+		/* take second digit and store in n */
+		n %= 10;
+		/* if second digit negative */
+		if (n < 0)
+			/* make it positive */
+			n *= -1;
 	}
-
-	if (x > 9)
-	{
-		adjust = 10;
-
-		while (x / adjust >= 10)
-			adjust = adjust * 10;
-
-		string[count++] = ((x / adjust) + '0');
-
-		while (adjust >= 10)
-		{
-			adjust = adjust / 10;
-			string[count++] = (((x / adjust) % 10)  + '0');
-		}
-
-	}
-
+	/* if n is NOT divisible by 10 */
 	else
-		string[count++] = n + '0';
+		/* and if n is negative */
+		if (n < 0)
+		{
+			/* print a minus sign */
+			_putchar('-');
+			count++;
+			/* and make n positive */
+			n *= -1;
+		}
+	/* print out n */
+	_putchar(n + '0');
+	count++;
 
-	string[count] = 0;
 
-	return (string);
+	return(count);
 }

@@ -39,19 +39,10 @@ int _str(char *string)
 
 int _num(int n)
 {
-
-	char *string;
 	int count;
 
 	count = 0;
-	string = 0;
 
-	string = inToString(n);
-	if (string == NULL)
-		return (0);
-
-	count = counter(string);
-	write(1, string, count);
-	free(string);
+	count = inToString(n);
 	return (count);
 }
