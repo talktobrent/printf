@@ -48,6 +48,7 @@ int _num(int n)
 
 	string = inToString(n);
 	if (string == NULL)
+		free(string);
 		return (0);
 
 	count = counter(string);
