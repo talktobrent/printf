@@ -1,5 +1,5 @@
 # 0x10. C - printf
-## A homemade *__printf_* function that replicates the builtin version
+## A homemade __printf_ function that replicates the builtin version in C
 - Takes in variable arguments
 - Interprets format string
 - Converts to ASCII
